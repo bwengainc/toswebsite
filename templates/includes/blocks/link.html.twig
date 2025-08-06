@@ -1,0 +1,4 @@
+{# @see https://docs.sulu.io/en/2.5/reference/content-types/link.html #}
+<a href="{{ content.link }}" class="button block-link" target="{{ view.link.target }}">
+    {{ view.link.title|default('read_more'|trans) }}
+</a>

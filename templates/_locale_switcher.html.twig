@@ -1,0 +1,9 @@
+<div class="navbar__locales">
+            {% for localization in localizations %}
+                <a style="color:#000 !important;" href="{{ localization.url }}"
+                   title="{{ localization.locale }}"
+                   class="navbar__item navbar__item--locale{{ localization.locale == app.request.locale ? ' navbar__item--active' : '' }}">
+                    {{ localization.locale|upper }}
+                </a>
+            {% endfor %}
+        </div>

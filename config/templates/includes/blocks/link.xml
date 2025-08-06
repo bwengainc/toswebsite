@@ -1,0 +1,30 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="link">
+        <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/block.html -->
+
+        <types>
+            <type name="link">
+                <meta>
+                    <title lang="en">Link</title>
+                    <title lang="de">Link</title>
+                </meta>
+
+                <properties>
+                    <property name="link" type="link" mandatory="true">
+                        <meta>
+                            <title lang="en">Link</title>
+                            <title lang="de">Link</title>
+                        </meta>
+
+                        <params>
+                            <param name="enable_anchor" value="true"/>
+                            <param name="enable_attributes" value="true"/>
+                        </params>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

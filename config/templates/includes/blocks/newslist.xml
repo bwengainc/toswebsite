@@ -1,0 +1,33 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="newslist">
+        <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/block.html -->
+
+        <types>
+            <type name="newslist">
+                <meta>
+                    <title lang="en">News</title>
+                    <title lang="de">News</title>
+                </meta>
+
+                <properties>
+
+<property name="newslist" type="smart_content">
+    <meta>
+        <title lang="en">News</title>
+        <title lang="de">News</title>
+    </meta>
+    <params>
+        <param name="provider" value="news"/>
+        <param name="max_per_page" value="5"/>
+        <param name="page_parameter" value="page"/>
+    </params>
+</property>
+
+
+</properties>
+            </type>
+        </types>
+    </block>
+</properties>

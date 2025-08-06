@@ -1,0 +1,33 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="events">
+        <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/block.html -->
+
+        <types>
+            <type name="events">
+                <meta>
+                    <title lang="en">Events</title>
+                    <title lang="de">Veranstaltungen</title>
+                </meta>
+
+                <properties>
+
+<property name="events" type="smart_content">
+    <meta>
+        <title lang="en">Events</title>
+        <title lang="de">Veranstaltungen</title>
+    </meta>
+    <params>
+        <param name="provider" value="events"/>
+        <param name="max_per_page" value="5"/>
+        <param name="page_parameter" value="page"/>
+    </params>
+</property>
+
+
+   </properties>
+            </type>
+        </types>
+    </block>
+</properties>

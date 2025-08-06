@@ -1,0 +1,51 @@
+
+<!-- News Section -->
+    <section class="news-section">
+        <div class="auto-container">
+            <div class="sec-title text-center">
+                <div class="big-title">Ophthalmology</div>
+                <div class="sub-title">City With Equity - Efficiency - Opportunity</div>
+                <h2>News & Press Releases</h2>
+            </div>
+            <div class="row">
+                <div class="theme_carousel owl-theme owl-carousel" data-options='{"loop": true, "center": false, "margin": 0, "autoheight":true, "lazyload":true, "nav": true, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 1000, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "992" :{ "items" : "2" } , "1200":{ "items" : "3" }, "1600":{ "items" : "4" }}}'>
+                    {% for news in content.newslist %}
+                    <div class="col-xl-12 news-block">
+                        <div class="inner-box">
+                            <div class="image">
+<!--BWE: Displaying of Bild-Image -->
+{% if news.image %}
+    {% set image = sulu_resolve_media(news.image.id, app.request.locale) %}
+    <img src="{{ image.url }}" title="{{ news.title }}" class=""/>
+{% endif %}
+<!--End-->                   
+                                <div class="overlay">
+                                    <div class="link-btn"><a href="blog-details.html"><i class="icon-arrow"></i></a></div>
+                                </div>
+                            </div>
+                            <div class="lower-content">
+                                <!--<div class="category"><a href="#">Health & Fitness</a></div>-->
+                                <h4><a href="{{ news.routePath }}"> {{ news.title }}</a></h4>
+                                 <h3>{{ news.subtitle }}</h3>
+            
+        
+                                <div class="text">{{ news.summary|raw }}</div>
+                                <ul class="post-meta">
+                                   <!-- <li><i class="far fa-user"></i>City Admin</li>-->
+                                    <li><i class="far fa-calendar"></i> {{ news.created|format_datetime('full', 'none', locale=app.request.getLocale()) }}</li>
+                                    <!--<li><i class="far fa-comments"></i>68</li>-->
+                                </ul>
+                                <p style="margin-top:9px;">
+            <a class="btn btn-primary" href="{{ news.routePath }}" role="button">
+                {{ "Read more..."|trans }} <i class="fa fa-angle-double-right"></i>
+            </a>
+        </p>
+                            </div>
+            
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>

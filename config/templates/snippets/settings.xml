@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>settings</key>
+
+    <meta>
+        <title lang="en">Settings</title>
+        <title lang="de">Settings</title>
+    </meta>
+
+    <areas>
+        <!-- @see https://docs.sulu.io/en/2.2/cookbook/default-snippets.html -->
+        <area key="webspace_settings">
+            <meta>
+                <title lang="en">Webspace Settings</title>
+                <title lang="de">Webspace Settings</title>
+            </meta>
+        </area>
+    </areas>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="de">Titel</title>
+            </meta>
+
+            <tag name="sulu.node.name"/>
+        </property>
+
+        <property name="account" type="single_account_selection" mandatory="true">
+            <meta>
+                <title lang="en">Organization</title>
+                <info_text lang="en">The selected organization will be used for displaying contact informations on the website.</info_text>
+
+                <title lang="de">Organisation</title>
+                <info_text lang="de">Die ausgewählte Organisation zur Darstellung von Kontaktinformationen auf der Webseite verwendet.</info_text>
+            </meta>
+        </property>
+    </properties>
+</template>

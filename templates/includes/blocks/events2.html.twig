@@ -1,0 +1,28 @@
+{% for event in content.events %}
+    <div class="col">
+        <h2>
+            {{ event.title }}
+        </h2>
+        <p>
+            {{ event.startDate|format_datetime('full', 'none', locale=app.request.getLocale()) }}
+            {% if event.endDate and event.startDate != event.endDate %}
+                 - {{ event.endDate|format_datetime('full', 'none', locale=app.request.getLocale()) }}
+            {% endif %}
+        </p>
+        <p>
+            {{ event.summary|raw }}
+        </p>
+        <p>
+            {{ event.text|raw }}
+        </p>
+        <p>
+            {{ event.footer|raw }}
+        </p>
+        <p>
+            <a class="btn btn-primary" href="{{ event.routePath }}" role="button">
+                {{ "Read more..."|trans }} <i class="fa fa-angle-double-right"></i>
+            </a>
+        </p>
+    </div>
+{% endfor %}
+

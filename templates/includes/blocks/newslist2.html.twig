@@ -1,0 +1,21 @@
+{% for news in content.newslist %}
+    <div class="col">
+        <h2>
+            {{ news.title }}
+        </h2>
+        <h3>
+            {{ news.subtitle }}
+        </h3>
+        <p>
+            {{ news.created|format_datetime('full', 'none', locale=app.request.getLocale()) }}
+        </p>
+        <p>
+            {{ news.summary|raw }}
+        </p>
+        <p>
+            <a class="btn btn-primary" href="{{ news.routePath }}" role="button">
+                {{ "Read more..."|trans }} <i class="fa fa-angle-double-right"></i>
+            </a>
+        </p>
+    </div>
+{% endfor %}

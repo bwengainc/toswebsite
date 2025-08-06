@@ -1,0 +1,52 @@
+
+<!-- Events section two -->
+    <section class="events-section-two">
+        <div class="auto-container">
+            <div class="sec-title style-two text-center">
+                <!--<div class="big-title">Governlia</div>
+                <div class="sub-title">City With Equity - Efficiency - Opportunity</div>-->
+                <h2>Upcoming Events & Conferences</h2>
+            </div>
+            <div class="event-wrapper">
+                <div class="event-block-two">
+                    <div class="inner-box">
+                        <div class="row">
+                        {% for event in content.events %}
+                            <div class="col-lg-4">
+                                <div class="image">
+                                    <img src="assets/images/resource/image-24.jpg" alt="">
+                                    <div class="date">{{ event.startDate|format_datetime('full', 'none', locale=app.request.getLocale()) }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="content">
+                                    <div class="category"><a href="{{ event.routePath }}"> {{ event.subtitle}}</a></div>
+                                    <h4>{{ event.title }}</h4>
+                                    <ul>
+                                        <li><i class="fas fa-map-marker-alt"></i> {{ event.location.street }} {{ event.location.name }}, {{ event.location.city}}</li>
+                                        
+                                    </ul>
+                                     <p> {{ event.text|raw }} </p>        
+        
+ 
+                                    <div class="link-btn"><a href="{{ event.routePath }}"><i class="icon-arrow"></i></a>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                            <div class="all-events">
+                <div class="link-btn"><a href="#" class="btn-style-one style-three"><span>View more events</span></a></div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+

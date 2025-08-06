@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>slideshow</key>
+
+    <meta>
+        <title lang="en">Slideshow</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+            </meta>
+        </property>
+
+        <block name="slides" default-type="slide">
+            <meta>
+                <title lang="en">Slides</title>
+            </meta>
+            <types>
+                <type name="slide">
+                    <properties>
+                        <property name="image" type="media_selection" maxOccurs="1" mandatory="true">
+                            <meta>
+                                <title lang="en">Image</title>
+                            </meta>
+                        </property>
+                        <property name="caption" type="text_line">
+                            <meta>
+                                <title lang="en">Caption</title>
+                            </meta>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
+    </properties>
+</template>
