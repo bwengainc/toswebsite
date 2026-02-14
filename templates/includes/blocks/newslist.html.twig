@@ -1,51 +1,193 @@
-
 <!-- News Section -->
-    <section class="news-section">
-        <div class="auto-container">
-            <div class="sec-title text-center">
-                <div class="big-title">Ophthalmology</div>
-                <div class="sub-title">City With Equity - Efficiency - Opportunity</div>
-                <h2>News & Press Releases</h2>
-            </div>
-            <div class="row">
-                <div class="theme_carousel owl-theme owl-carousel" data-options='{"loop": true, "center": false, "margin": 0, "autoheight":true, "lazyload":true, "nav": true, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 1000, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "992" :{ "items" : "2" } , "1200":{ "items" : "3" }, "1600":{ "items" : "4" }}}'>
+<section class="news-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <div class="big-title">Ophthalmology</div>
+            <div class="sub-title">City With Equity - Efficiency - Opportunity</div>
+            <h2>News & Press Releases</h2>
+        </div>
+        
+        <div class="row">
+            <!-- Left Column: News Carousel -->
+            <div class="col-lg-9 col-md-12">
+                <div class="theme_carousel owl-theme owl-carousel" 
+                     data-options='{"loop": true, "center": false, "margin": 30, "autoheight":true, "lazyload":true, "nav": true, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 1000, "responsive":{ "0" :{ "items": 1 }, "600" :{ "items" : 1 }, "992" :{ "items" : 2 }, "1200":{ "items" : 3 }}}'>
+                    
                     {% for news in content.newslist %}
-                    <div class="col-xl-12 news-block">
-                        <div class="inner-box">
-                            <div class="image">
-<!--BWE: Displaying of Bild-Image -->
-{% if news.image %}
-    {% set image = sulu_resolve_media(news.image.id, app.request.locale) %}
-    <img src="{{ image.url }}" title="{{ news.title }}" class=""/>
-{% endif %}
-<!--End-->                   
-                                <div class="overlay">
-                                    <div class="link-btn"><a href="blog-details.html"><i class="icon-arrow"></i></a></div>
+                        {% if news.type != 'announcement' %}
+                            {# Each slide MUST be a direct child of the carousel div #}
+                            <div class="news-block">
+                                <div class="inner-box">
+                                    <div class="image">
+                                        {% if news.image %}
+                                            {% set image = sulu_resolve_media(news.image.id, app.request.locale) %}
+                                            <img src="{{ image.url }}" title="{{ news.title }}" alt="{{ news.title }}">
+                                        {% endif %}
+                                        <div class="overlay">
+                                            <div class="link-btn"><a href="{{ news.routePath }}"><i class="icon-arrow"></i></a></div>
+                                        </div>
+                                    </div>
+                                    <div class="lower-content">
+                                        <h4><a href="{{ news.routePath }}">{{ news.title }}</a></h4>
+                                        <h3 style="font-size: 18px;">{{ news.subtitle }}</h3>
+                                        <div class="text">{{ news.summary|raw }}</div>
+                                        <ul class="post-meta">
+                                            <li><i class="far fa-calendar"></i> {{ news.created|format_datetime('full', 'none', locale=app.request.getLocale()) }}</li>
+                                        </ul>
+                                        <p style="margin-top:9px;">
+                                            <a class="btn btn-primary" href="{{ news.routePath }}" role="button">
+                                                {{ "Read more..."|trans }} <i class="fa fa-angle-double-right"></i>
+                                            </a>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="lower-content">
-                                <!--<div class="category"><a href="#">Health & Fitness</a></div>-->
-                                <h4><a href="{{ news.routePath }}"> {{ news.title }}</a></h4>
-                                 <h3>{{ news.subtitle }}</h3>
-            
-        
-                                <div class="text">{{ news.summary|raw }}</div>
-                                <ul class="post-meta">
-                                   <!-- <li><i class="far fa-user"></i>City Admin</li>-->
-                                    <li><i class="far fa-calendar"></i> {{ news.created|format_datetime('full', 'none', locale=app.request.getLocale()) }}</li>
-                                    <!--<li><i class="far fa-comments"></i>68</li>-->
-                                </ul>
-                                <p style="margin-top:9px;">
-            <a class="btn btn-primary" href="{{ news.routePath }}" role="button">
-                {{ "Read more..."|trans }} <i class="fa fa-angle-double-right"></i>
-            </a>
-        </p>
-                            </div>
-            
-                        </div>
-                    </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
+
+            <!-- Right Column: Announcements Sidebar -->
+            <div class="col-lg-3 col-md-12">
+                <div class="sidebar-announcements" style="background: #f7f7f7; padding: 20px; border-radius: 8px;">
+                    <h3 style="margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px;">Announcements</h3>
+                    {% for news in content.newslist %}
+                        {% if news.type == 'announcement' %}
+                            <div class="featured-imagebox style2" style="margin-bottom: 20px;">
+                                <div class="featured-content">
+                                    <div class="post-meta" style="font-size: 12px; color: #777;">
+                                        <i class="fa fa-calendar"></i> {{ news.created|format_datetime('short', 'none', locale=app.request.getLocale()) }}
+                                    </div>
+                                    <h4 style="font-size: 16px; margin-top: 5px;">
+                                        <a href="{{ news.routePath }}">{{ news.title }}</a>
+                                    </h4>
+                                    <p style="font-size: 14px;">{{ news.subtitle }}</p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="text-center" style="margin-top: 20px;">
+                        <a class="theme-btn btn-style-one" href="{{ sulu_content_path('/announcement') }}">
+                            <span>View All</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!---
+
+
+<section class="news-section">
+  <div class="auto-container">
+    <div class="sec-title text-center">
+      <div class="big-title">Ophthalmology</div>
+      <div class="sub-title">City With Equity - Efficiency - Opportunity</div>
+      <h2>News & Press Releases</h2>
+    </div>
+
+    <div class="row">
+ 
+      <div class="col-lg-8 col-md-12">
+        <div class="theme_carousel owl-theme owl-carousel"
+             data-options='{
+               "loop": true,
+               "margin": 30,
+               "autoheight": true,
+               "lazyload": true,
+               "nav": true,
+               "dots": true,
+               "autoplay": true,
+               "autoplayTimeout": 6000,
+               "smartSpeed": 1000,
+               "responsive": {
+                 "0":   { "items": 1 },
+                 "600": { "items": 1 },
+                 "992": { "items": 2 },
+                 "1200":{ "items": 3 }
+               }
+             }'>
+          {% for news in content.newslist %}
+            {% if news.type != 'announcement' %}
+     
+              <div class="news-block">
+                <div class="inner-box">
+                  <div class="image">
+                    {% if news.image %}
+                      {% set image = sulu_resolve_media(news.image.id, app.request.locale) %}
+                      <img src="{{ image.url }}" title="{{ news.title }}" class=""/>
+                    {% endif %}
+                    <div class="overlay">
+                      <div class="link-btn"><a href="{{ news.routePath }}"><i class="icon-arrow"></i></a></div>
+                    </div>
+                  </div>
+                  <div class="lower-content">
+                    <h4><a href="{{ news.routePath }}">{{ news.title }}</a></h4>
+                    <h6>{{ news.subtitle }}</h6>
+                    <div class="text">{{ news.summary|raw }}</div>
+                    <ul class="post-meta">
+                      <li><i class="far fa-calendar"></i>
+                        {{ news.created|format_datetime('full', 'none', locale=app.request.getLocale()) }}
+                      </li>
+                    </ul>
+                    <p style="margin-top:9px;">
+                      <a class="btn btn-primary" href="{{ news.routePath }}" role="button">
+                        {{ "Read more..."|trans }} <i class="fa fa-angle-double-right"></i>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+   
+      <div class="col-lg-4 col-md-12">
+        <h3>Announcements</h3>
+        {% for news in content.newslist %}
+          {% if news.type == 'announcement' %}
+            <div class="featured-imagebox featured-imagebox-post style2">
+              <div class="featured-content">
+                <div class="post-meta">
+                  <span class="ttm-meta-line post-date">
+                    <i class="fa fa-calendar"></i>
+                    <time class="entry-date published" datetime="{{ news.created|date('c') }}">
+                      {{ news.created|format_datetime('full', 'none', locale=app.request.getLocale()) }}
+                    </time>
+                  </span>
+                </div>
+                <div class="featured-title">
+                  <h4><a href="{{ news.routePath }}">{{ news.title }}</a></h4>
+                  <h6>{{ news.subtitle }}</h6>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        <div class="text-center margin_top5">
+          <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-round ttm-btn-style-fill ttm-btn-color-dark"
+             href="{{ sulu_content_path('/announcement') }}">
+            {% trans %}View All Announcements{% endtrans %}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->

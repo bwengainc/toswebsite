@@ -15,7 +15,12 @@
                             <div class="col-lg-4">
                                 <div class="image">
                                     <img src="assets/images/resource/image-24.jpg" alt="">
-                                    <div class="date">{{ event.startDate|format_datetime('full', 'none', locale=app.request.getLocale()) }}</div>
+                                    <!--<div class="date">{{ event.startDate|format_datetime('full', 'none', locale=app.request.getLocale()) }}</div>-->
+                                    <div class="date">
+                                    <span class="day">{{ event.startDate|format_datetime(pattern='dd', locale=app.request.getLocale()) }}</span><br>
+                                    <span class="month">{{ event.startDate|format_datetime(pattern='MMM', locale=app.request.getLocale())|upper }}</span>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="col-lg-8">

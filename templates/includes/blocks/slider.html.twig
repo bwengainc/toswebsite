@@ -2,13 +2,13 @@
 {% if content.snippets|length > 0 %}
 {% set content = content.snippets[0] %}
 <!-- Bnner Section -->
-    <section class="banner-section">
+    <section class="banner-section mt-0">
         <div class="swiper-container banner-slider">
             <div class="swiper-wrapper">
        {% for slider_item in content.slider %}
        {% if slider_item.slider_url or slider_item.slider_link[0].url is defined %}
                 <!-- Slide Item -->
-                <div class="swiper-slide" style="background-image: url({{ slider_item.slider_image[0].formats['1380x'] }});">
+                <div class="swiper-slide" style="background-image: url({{ slider_item.slider_image[0].formats['1920x800'] }});">
                     <div class="content-outer">
                         <div class="content-box">
                             <div class="inner">

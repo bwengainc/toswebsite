@@ -21,7 +21,17 @@
 
     <img src="{{ image.thumbnails['300x'] }}" alt="{{ image.title }}" title="{{ image.description|default(image.title) }}">
     -->
-<format key="991x">
+
+    <format key="153x">
+        <meta>
+            <title lang="en">Logo Image</title>
+            <title lang="de">Logobild</title>
+        </meta>
+        <scale x="153"/>
+    </format>
+
+
+    <format key="991x">
         <meta>
             <title lang="en">Header Image (Mobile) / Content Image (Mobile)</title>
             <title lang="de">Header Bild (Mobile) / Content Image (Mobile)</title>
@@ -67,6 +77,17 @@
 
         <scale x="400" y="400"/>
     </format>
+
+    <format key="1920x800">
+        <meta>
+            <title lang="en">Slider Image</title>
+            <title lang="de">Sliderbild</title>
+        </meta>
+        <scale x="1920" y="800"/>
+    </format>
+
+
+
 
 
 

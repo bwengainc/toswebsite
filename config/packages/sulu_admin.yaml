@@ -6,3 +6,13 @@ sulu_admin:
     lists:
         directories:
             - "%kernel.project_dir%/config/lists"
+
+sulu_core:
+    locales:
+        en: English
+        fr: French
+        sw: Swahili
+    translations:
+        - en
+        - fr
+        - sw

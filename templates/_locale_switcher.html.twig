@@ -1,9 +1,63 @@
-<div class="navbar__locales">
+<!--<div class="language">
+  <nav class="language-switcher">
+    <ul class="locale-list">
+      {% if localizations is defined and localizations|length > 1 %}
+        <li class="locale-item">
+          {% set current_language = app.request.locale|locale_name(app.request.locale)|capitalize %}
+          <a href="#" class="locale-link dropdown-toggle">
+            <img src="{{ asset('assets/images/languages/' ~ app.request.locale ~ '.png') }}"
+                 alt="{{ current_language }}" class="flag-icon"/>
+            <span class="active-language">{{ current_language }}</span>
+            <span class="menu-toggle"></span>
+          </a>
+
+          <ul class="locale-submenu">
             {% for localization in localizations %}
-                <a style="color:#000 !important;" href="{{ localization.url }}"
-                   title="{{ localization.locale }}"
-                   class="navbar__item navbar__item--locale{{ localization.locale == app.request.locale ? ' navbar__item--active' : '' }}">
-                    {{ localization.locale|upper }}
-                </a>
+              {% if localization.locale != app.request.locale %}
+                {% set language = localization.locale|locale_name(localization.locale)|capitalize %}
+                <li>
+                  <a href="{{ localization.url }}" class="locale-link">
+                    <img src="{{ asset('assets/images/languages/' ~ localization.locale ~ '.png') }}"
+                         alt="{{ language }}" class="flag-icon"/>
+                    {{ language }}
+                  </a>
+                </li>
+              {% endif %}
             {% endfor %}
-        </div>
+          </ul>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+</div>-->
+
+<div class="language">
+    {% if localizations is defined and localizations|length > 1 %}
+        <span class="icon">
+            <img src="{{ asset('assets/images/languages/' ~ app.request.locale ~ '.png') }}" alt="">
+        </span>
+
+        <form action="#" class="language-switcher">
+            <select class="selectpicker" onchange="window.location.href=this.value;">
+                {% for localization in localizations %}
+                    {#% set language_name = localization.locale|locale_name(localization.locale)|capitalize %#}
+                    {% set language_name = localization.locale|upper %}
+
+                    {% set flag_url = asset('assets/images/languages/' ~ localization.locale ~ '.png') %}
+                    {% set is_active = (localization.locale == app.request.locale) %}
+
+                    <option value="{{ localization.url }}" 
+                            {# 'title' ensures the name appears when the dropdown is closed #}
+                            title="{{ language_name }}"
+                            {# 'data-content' allows the image + name inside the menu #}
+                            data-content="<img src='{{ flag_url }}' width='20' class='me-2'> <span>{{ language_name }}</span>"
+                            {{ is_active ? 'selected' : '' }}>
+                        {{ language_name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </form>
+    {% endif %}
+</div>
+
+

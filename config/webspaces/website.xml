@@ -10,6 +10,8 @@
     <localizations>
         <!-- See: http://docs.sulu.io/en/latest/book/localization.html how to add new localizations -->
         <localization language="en" default="true"/>
+        <localization language="fr"/>
+        <localization language="sw"/>
     </localizations>
 
     <default-templates>
@@ -37,6 +39,15 @@
                     <title lang="de">Hauptnavigation</title>
                 </meta>
             </context>
+
+        <context key="footer">
+                <meta>
+                    <title lang="en">Footer Navigation</title>
+                    <title lang="de">Footer Navigation</title>
+                </meta>
+            </context>
+
+
         </contexts>
     </navigation>
 
@@ -45,28 +56,47 @@
             <name>Website</name>
             <key>website</key>
 
-            <environments>
+            <!--locale-switch -->
+        <environments>
                 <environment type="prod">
                     <urls>
-                        <url language="en">{host}</url>
+                        <url>{host}/{localization}</url>
                     </urls>
+                    <custom-urls>
+                        <custom-url>tos.or.tz/*</custom-url>
+                    </custom-urls>
                 </environment>
+
                 <environment type="stage">
                     <urls>
-                        <url language="en">{host}</url>
+                        <url>{host}/{localization}</url>
                     </urls>
+                    <custom-urls>
+                        <custom-url>*.*/*</custom-url>
+                    </custom-urls>
                 </environment>
+
                 <environment type="test">
                     <urls>
-                        <url language="en">{host}</url>
+                        <url>{host}/{localization}</url>
                     </urls>
+                    <custom-urls>
+                        <custom-url>*.*/*</custom-url>
+                    </custom-urls>
                 </environment>
+
                 <environment type="dev">
                     <urls>
-                        <url language="en">{host}</url>
+                        <url>{host}/{localization}</url>
                     </urls>
+                    <custom-urls>
+                        <custom-url>*.*/*</custom-url>
+                        <custom-url>tos.local/*</custom-url>
+                        <custom-url>tos.localhost/*</custom-url>
+                    </custom-urls>
                 </environment>
             </environments>
+        <!--end-->
         </portal>
     </portals>
 </webspace>

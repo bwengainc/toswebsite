@@ -7,53 +7,85 @@
     <key>homepage</key>
 
     <view>pages/homepage</view>
-    <controller>App\Controller\PageController::homepage</controller>
+    <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
     <cacheLifetime>86400</cacheLifetime>
 
     <meta>
         <title lang="en">Homepage</title>
-        <title lang="de">Homepage</title>
+        <title lang="de">Startseite</title>
     </meta>
 
     <properties>
-
-        <xi:include href="../includes/highlight.xml"/>
-
-        <section name="header">
+      <property name="title" type="text_line" mandatory="true">
             <meta>
-                <title lang="en">Header</title>
+                <title lang="en">Title</title>
+                <title lang="de">Titel</title>
             </meta>
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+
+            <tag name="sulu.rlp.part"/>
+        </property>
+
+        
+        <property name="url" type="resource_locator" mandatory="true">
+            <meta>
+                <title lang="en">Resourcelocator</title>
+                <title lang="de">Adresse</title>
+            </meta>
+
+            <tag name="sulu.rlp"/>
+        </property>
+        
+    <!--SELECTION SECTIONS -->
+        <section name="content">
+            <meta>
+                <title lang="en">Content</title>
+                <title lang="de">Inhalte</title>
+            </meta>
+
             <properties>
-                <block name="blocks" default-type="slider">
+                <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
+                <block name="blocks" default-type="slider" minOccurs="0">
+                    <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/block.html -->
+
+                    <meta>
+                        <title lang="en">Blocks</title>
+                        <title lang="de">Blöcke</title>
+                    </meta>
+
                     <types>
-                        <type name="slider">
-                            <properties>
-                                <property name="snippets" type="snippet_selection"/>
-                            </properties>
-                        </type>
-                        <type name="carousel">
-                            <properties>
-                                <property name="snippets" type="snippet_selection"/>
-                            </properties>
-                        </type>
-                         <type name="slideshow">
-                            <properties>
-                                <property name="snippets" type="snippet_selection"/>
-                            </properties>
-                        </type>
-                        <type name="text_media">
-                            <properties>
-                                <property name="article" type="text_editor"/>
-                                <property name="media" type="media_selection"/>
-                            </properties>
-                        </type>
+
+                       <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
+                       <xi:include href="../includes/blocks/slider.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                      <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
+                      <xi:include href="../includes/blocks/events.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    
+                     <xi:include href="../includes/blocks/newslist.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                           
                     </types>
                 </block>
             </properties>
         </section>
+        <!--END OF THE SELECTION SECTIONS-->
 
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
     </properties>
 </template>
