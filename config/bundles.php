@@ -53,4 +53,5 @@ return [
     Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
     Manuxi\SuluArchiveBundle\SuluArchiveBundle::class => ['all' => true],
+    Sulu\Bundle\FormBundle\SuluFormBundle::class => ['all' => true],
 ];

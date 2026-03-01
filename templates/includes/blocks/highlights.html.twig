@@ -1,0 +1,47 @@
+<section class="projects-section">
+    <div class="auto-container">
+        <div class="row no-gutters">
+            {% if content.items is defined and content.items is not empty %}
+                {% for highlight in content.items %}
+                    <div class="col-xl-3 col-lg-6 project-block">
+                        <div class="inner-box">
+                            {% if highlight.image is not empty %}
+                                {% set image = sulu_resolve_media(highlight.image|first.id, app.request.locale) %}
+                                {% set source = image.formats['474x355'] 
+                                    is defined and image.formats['474x355'] is not empty 
+                                    ? image.formats['474x355'] 
+                                    : image.url %}
+                                <div class="image">
+                                    <img src="{{ source }}" alt="{{ image.title }}">
+                                </div>
+                            {% endif %}
+
+                            <div class="content">
+                                {% if highlight.subtitle %}
+                                    <h4>{{ highlight.subtitle }}</h4>
+                                {% endif %}
+                                {% if highlight.title %}
+                                    <h3>{{ highlight.title }}</h3>
+                                {% endif %}
+                                <div class="link-btn">
+                                    <a href="{{ highlight.link|default('#') }}"><i class="icon-arrow"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="overlay">
+                                <div class="content-two">
+                                    <h4>{{ highlight.subtitle }}</h4>
+                                    <h3>{{ highlight.title }}</h3>
+                                    <div class="text">{{ highlight.description|nl2br }}</div>
+                                    <div class="link-btn">
+                                        <a href="{{ highlight.link|default('#') }}"><i class="icon-arrow"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>

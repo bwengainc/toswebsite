@@ -16,535 +16,134 @@
     </meta>
 
     <properties>
-        <xi:include href="../includes/highlight.xml"/>
-        <section name="header">
+          <property name="title" type="text_line" mandatory="true">
             <meta>
-                <title lang="en">Header</title>
+                <title lang="en">Title</title>
+                <title lang="de">Titel</title>
             </meta>
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+
+            <tag name="sulu.rlp.part"/>
+        </property>
+
+        <property name="url" type="resource_locator" mandatory="true">
+            <meta>
+                <title lang="en">Resourcelocator</title>
+                <title lang="de">Adresse</title>
+            </meta>
+
+            <tag name="sulu.rlp"/>
+        </property>
+        <!-- HEADER SECTION -->
+        <section name="header">
+            <meta><title lang="en">Header</title></meta>
             <properties>
-                <property name="tracking" type="text_area">
-                    <meta>
-                        <title lang="en">Tracking</title>
-                    </meta>
-                </property>
+                <property name="tracking" type="text_area"><meta><title lang="en">Tracking</title></meta></property>
                 <property name="sponsorLogo" type="media_selection" maxOccurs="1">
-                    <meta>
-                        <title lang="en">Sponsor Logo</title>
-                    </meta>
-                    <params>
-                        <param name="types" value="image"/>
-                    </params>
+                    <meta><title lang="en">Sponsor Logo</title></meta>
+                    <params><param name="types" value="image"/></params>
                 </property>
-                <property name="sponsorLogoPaddingTop" type="text_line">
-                    <meta>
-                        <title lang="en">Padding Top</title>
-                    </meta>
-                </property>
-                <property name="town" type="text_line">
-                    <meta>
-                        <title lang="en">Town</title>
-                    </meta>
-                </property>
-                <property name="date" type="date">
-                    <meta>
-                        <title lang="en">Date</title>
-                    </meta>
-                </property>
-                <property name="eventLink" type="url">
-                    <meta>
-                        <title>Event link</title>
-                    </meta>
-                </property>
-                <property name="previewImageLink" type="url">
-                    <meta>
-                        <title>Preview image link</title>
-                    </meta>
-                </property>
-                <property name="blogLink" type="url" colspan="6">
-                    <meta>
-                        <title>Blog link</title>
-                    </meta>
-                </property>
-                <property name="blogLinkText" type="text_line"  colspan="6">
-                    <meta>
-                        <title lang="en">Blog link text</title>
-                    </meta>
-                </property>
-                <property name="socialInstitutionLink" type="url" colspan="6">
-                    <meta>
-                        <title>Social institution link</title>
-                    </meta>
-                </property>
-                <property name="socialInstitutionLinkText" type="text_line"  colspan="6">
-                    <meta>
-                        <title lang="en">Social institution link text</title>
-                    </meta>
-                </property>
-                <property name="donation" type="text_line" colspan="4">
-                    <meta>
-                        <title lang="en">Donation</title>
-                    </meta>
-                </property>
-                <property name="donationPerTicket" type="text_line">
-                    <meta>
-                        <title>per Ticket</title>
-                    </meta>
-                </property>
-
-                <property name="optionalPrice" type="text_line" colspan="4">
-                    <meta>
-                        <title lang="en">Optional Price</title>
-                    </meta>
-                </property>
-                <property name="optinalButtonText" type="text_line" colspan="4">
-                    <meta>
-                        <title lang="en">Optional button text</title>
-                    </meta>
-                </property>
-                <property name="description" type="text_area">
-                    <meta>
-                        <title lang="en">Description</title>
-                    </meta>
-
-                    <params>
-                        <param name="table" value="false"/>
-                        <param name="link" value="true"/>
-                        <!-- CKEditor Parameters examples: -->
-                        <param name="extra_allowed_content" value="img(*)[*]; span(*)[*]; div(*)[*]; iframe(*)[*]; script(*)[*]" />
-                        <param name="ui_color" value="#ffcc00"/>
-                    </params>
-                </property>
+                <property name="town" type="text_line"><meta><title lang="en">Town</title></meta></property>
+                <property name="date" type="date"><meta><title lang="en">Date</title></meta></property>
+                <property name="eventLink" type="url"><meta><title>Event link</title></meta></property>
+                <property name="description" type="text_area"><meta><title lang="en">Description</title></meta></property>
                 <property name="eventheaderimage" type="media_selection" maxOccurs="1">
-                    <meta>
-                        <title lang="en">Event header image</title>
-                    </meta>
-                    <params>
-                        <param name="types" value="image"/>
-                    </params>
+                    <meta><title lang="en">Event header image</title></meta>
+                    <params><param name="types" value="image"/></params>
                 </property>
             </properties>
         </section>
+
+        <!-- SPEAKER SECTION -->
         <section name="speaker">
-            <meta>
-                <title lang="en">Speaker</title>
-            </meta>
+            <meta><title lang="en">Speaker</title></meta>
             <properties>
-                <property name="speakerHeadline" type="text_line">
-                    <meta>
-                        <title lang="en">Headline</title>
-                    </meta>
-                </property>
-                <property name="speakerSubline" type="text_editor">
-                    <meta>
-                        <title lang="en"></title>
-                    </meta>
-
-                    <params>
-                        <param name="table" value="false"/>
-                        <param name="link" value="true"/>
-                        <!-- CKEditor Parameters examples: -->
-                        <param name="extra_allowed_content"
-                               value="img(*)[*]; span(*)[*]; div(*)[*]; iframe(*)[*]; script(*)[*]"/>
-                        <param name="ui_color" value="#ffcc00"/>
-                    </params>
-                </property>
-
+                <property name="speakerHeadline" type="text_line"><meta><title lang="en">Headline</title></meta></property>
+                <property name="speakerSubline" type="text_editor"><meta><title lang="en">Subline</title></meta></property>
                 <block name="speakerItem" default-type="speaker" minOccurs="0">
-                    <meta>
-                        <title lang="en">Speaker item</title>
-                    </meta>
+                    <meta><title lang="en">Speaker item</title></meta>
                     <types>
                         <type name="speaker">
-                            <meta>
-                                <title lang="en">Speaker</title>
-                            </meta>
+                            <meta><title lang="en">Speaker</title></meta>
                             <properties>
                                 <property name="speakerItemImage" type="media_selection" maxOccurs="1">
-                                    <meta>
-                                        <title lang="en">Profil image</title>
-                                    </meta>
-                                    <params>
-                                        <param name="types" value="image"/>
-                                    </params>
+                                    <meta><title lang="en">Profile image</title></meta>
+                                    <params><param name="types" value="image"/></params>
                                 </property>
-                                <property name="speakerItemName" type="text_line" colspan="4">
-                                    <meta>
-                                        <title lang="en">Name</title>
-                                    </meta>
-                                </property>
-                                <property name="speakerItemJobTitle" type="text_line" colspan="4">
-                                    <meta>
-                                        <title lang="en">Job title</title>
-                                    </meta>
-                                </property>
-                                <property name="speakerItemCompany" type="text_line" colspan="4">
-                                    <meta>
-                                        <title lang="en">Company</title>
-                                    </meta>
-                                </property>
-                                <property name="speakerItemXingUrl" type="url">
-                                    <meta>
-                                        <title>Xing</title>
-                                    </meta>
-                                </property>
-                                <property name="speakerItemTwitterUrl" type="url">
-                                    <meta>
-                                        <title>speakeritemTwitterUrl</title>
-                                    </meta>
-                                </property>
-                                <property name="speakerItemGithubUrl" type="url">
-                                    <meta>
-                                        <title>GitHub</title>
-                                    </meta>
-                                </property>
-                                <property name="speakerItemLinkedinUrl" type="url">
-                                    <meta>
-                                        <title>Linkedin</title>
-                                    </meta>
-                                </property>
-                                <property name="speakerItemBio" type="text_editor">
-                                    <meta>
-                                        <title lang="en">Bio</title>
-                                    </meta>
-                                </property>
+                                <property name="speakerItemName" type="text_line"><meta><title lang="en">Name</title></meta></property>
+                                <property name="speakerItemJobTitle" type="text_line"><meta><title lang="en">Job title</title></meta></property>
+                                <property name="speakerItemCompany" type="text_line"><meta><title lang="en">Company</title></meta></property>
+                                <property name="speakerItemBio" type="text_editor"><meta><title lang="en">Bio</title></meta></property>
                             </properties>
                         </type>
                     </types>
                 </block>
             </properties>
         </section>
+
+        <!-- COUNTER SECTION -->
         <section name="counter">
-            <meta>
-                <title lang="en">Counter</title>
-            </meta>
+            <meta><title lang="en">Counter</title></meta>
             <properties>
-                <property name="counterSpeaker" type="text_line" colspan="4">
-                    <meta>
-                        <title lang="en">Speaker</title>
-                    </meta>
-                </property>
-                <property name="counterMember" type="text_line" colspan="4">
-                    <meta>
-                        <title lang="en">Member</title>
-                    </meta>
-                </property>
-                <property name="counterHours" type="text_line" colspan="4">
-                    <meta>
-                        <title lang="en">Hours</title>
-                    </meta>
-                </property>
-                <property name="donationHeadline" type="text_line">
-                    <meta>
-                        <title>Donation HL</title>
-                    </meta>
-                </property>
-                <property name="donationSubline" type="text_line">
-                    <meta>
-                        <title>Donation SL</title>
-                    </meta>
-                </property>
+                <property name="counterSpeaker" type="text_line"><meta><title lang="en">Speaker</title></meta></property>
+                <property name="counterMember" type="text_line"><meta><title lang="en">Member</title></meta></property>
+                <property name="counterHours" type="text_line"><meta><title lang="en">Hours</title></meta></property>
             </properties>
         </section>
+
+        <!-- OVERVIEW SECTION -->
         <section name="overview">
-            <meta>
-                <title lang="en">Overview</title>
-            </meta>
+            <meta><title lang="en">Overview</title></meta>
             <properties>
-                <property name="overviewLeft" type="text_area">
-                    <meta>
-                        <title lang="en">Overview left</title>
-                    </meta>
-                </property>
-                <property name="overviewHeadline" type="text_line">
-                    <meta>
-                        <title lang="en">Overview Headline</title>
-                    </meta>
-                </property>
-                <property name="overviewRight" type="text_editor">
-                    <meta>
-                        <title lang="en">Overview right</title>
-                    </meta>
-
-                    <params>
-                        <param name="table" value="false"/>
-                        <param name="link" value="true"/>
-                        <!-- CKEditor Parameters examples: -->
-                        <param name="extra_allowed_content" value="img(*)[*]; span(*)[*]; div(*)[*]; iframe(*)[*]; script(*)[*]" />
-                        <param name="ui_color" value="#ffcc00"/>
-                    </params>
-                </property>
+                <property name="overviewHeadline" type="text_line"><meta><title lang="en">Overview Headline</title></meta></property>
+                <property name="overviewLeft" type="text_area"><meta><title lang="en">Overview left</title></meta></property>
+                <property name="overviewRight" type="text_editor"><meta><title lang="en">Overview right</title></meta></property>
             </properties>
         </section>
+
+        <!-- TIMETABLE SECTION -->
         <section name="timetable">
-            <meta>
-                <title lang="en">Timetable</title>
-            </meta>
+            <meta><title lang="en">Timetable</title></meta>
             <properties>
-                <property name="timeTableHeadline" type="text_line">
-                    <meta>
-                        <title lang="en">Headline</title>
-                    </meta>
-                </property>
-                <property name="timeTableSubline" type="text_line">
-                    <meta>
-                        <title lang="en">Subline</title>
-                    </meta>
-                </property>
+                <property name="timeTableHeadline" type="text_line"><meta><title lang="en">Headline</title></meta></property>
                 <block name="timeTableItems" default-type="editor_image" minOccurs="0">
-                    <meta>
-                        <title lang="en">Time table</title>
-                    </meta>
+                    <meta><title lang="en">Time table</title></meta>
                     <types>
                         <type name="editor_image">
-                            <meta>
-                                <title lang="en">Time item</title>
-                            </meta>
+                            <meta><title lang="en">Time item</title></meta>
                             <properties>
-                                <property name="time" type="time">
-                                    <meta>
-                                        <title lang="en">Time</title>
-                                    </meta>
-                                </property>
-                                <property name="timetableHeadline" type="text_line">
-                                    <meta>
-                                        <title lang="en">Headline</title>
-                                    </meta>
-                                </property>
-                                <property name="images" type="media_selection" colspan="12">
-                                    <meta>
-                                        <title lang="en">Image</title>
-                                    </meta>
-                                    <params>
-                                        <param name="type" value="image"/>
-                                    </params>
-                                </property>
-                                <property name="alignRight" type="checkbox">
-                                    <meta>
-                                        <title lang="en">Align right</title>
-                                    </meta>
-                                </property>
-                                <property name="timetableDescription" type="text_editor" colspan="12">
-                                    <meta>
-                                        <title lang="en">Description</title>
-                                    </meta>
-                                </property>
-                                <property name="timetableSpeaker" type="text_line">
-                                    <meta>
-                                        <title lang="en">Speaker</title>
-                                    </meta>
-                                </property>
-                            </properties>
-                        </type>
-                    </types>
-                </block>
-                <block name="secondTimeTableItems" default-type="editor_image" minOccurs="0">
-                    <meta>
-                        <title lang="en">Time table second day</title>
-                    </meta>
-                    <types>
-                        <type name="editor_image">
-                            <meta>
-                                <title lang="en">Time item</title>
-                            </meta>
-                            <properties>
-                                <property name="time" type="time">
-                                    <meta>
-                                        <title lang="en">Time</title>
-                                    </meta>
-                                </property>
-                                <property name="timetableHeadline" type="text_line">
-                                    <meta>
-                                        <title lang="en">Headline</title>
-                                    </meta>
-                                </property>
-                                <property name="images" type="media_selection" colspan="12">
-                                    <meta>
-                                        <title lang="en">Image</title>
-                                    </meta>
-                                    <params>
-                                        <param name="type" value="image"/>
-                                    </params>
-                                </property>
-                                <property name="alignRight" type="checkbox">
-                                    <meta>
-                                        <title lang="en">Align right</title>
-                                    </meta>
-                                </property>
-                                <property name="timetableDescription" type="text_editor" colspan="12">
-                                    <meta>
-                                        <title lang="en">Description</title>
-                                    </meta>
-                                </property>
-                                <property name="timetableSpeaker" type="text_line">
-                                    <meta>
-                                        <title lang="en">Speaker</title>
-                                    </meta>
-                                </property>
+                                <property name="time" type="time"><meta><title lang="en">Time</title></meta></property>
+                                <property name="timetableHeadline" type="text_line"><meta><title lang="en">Headline</title></meta></property>
+                                <property name="timetableDescription" type="text_editor"><meta><title lang="en">Description</title></meta></property>
                             </properties>
                         </type>
                     </types>
                 </block>
             </properties>
         </section>
-        <section name="contact">
-            <meta>
-                <title lang="en">Contact</title>
-            </meta>
-            <properties>
-                <property name="hide" type="checkbox">
-                  <meta>
-                    <title lang="en">Ausblenden</title>
-                  </meta>
-                </property>
-                <property name="contactHeadline" type="text_line">
-                    <meta>
-                        <title lang="en">Headline</title>
-                    </meta>
-                </property>
-                <property name="contactBodytext" type="text_editor">
-                    <meta>
-                        <title lang="en">Bodytext</title>
-                    </meta>
 
-                    <params>
-                        <param name="table" value="false"/>
-                        <param name="link" value="true"/>
-                        <!-- CKEditor Parameters examples: -->
-                        <param name="extra_allowed_content"
-                               value="img(*)[*]; span(*)[*]; div(*)[*]; iframe(*)[*]; script(*)[*]"/>
-                        <param name="ui_color" value="#ffcc00"/>
-                    </params>
-                </property>
-                <property name="contactSubline" type="text_line">
-                    <meta>
-                        <title lang="en">Subline</title>
-                    </meta>
-                </property>
-                <block name="contactJobs" default-type="contactJob" minOccurs="0">
-                    <meta>
-                        <title lang="en">Jobs</title>
-                    </meta>
-                    <types>
-                        <type name="contactJob">
-                            <meta>
-                                <title lang="en">Job</title>
-                            </meta>
-                            <properties>
-                                <property name="contactJobTitle" type="text_line" colspan="6">
-                                    <meta>
-                                        <title lang="en">Job title</title>
-                                    </meta>
-                                </property>
-                                <property name="contactJobUrl" type="url" colspan="6">
-                                    <meta>
-                                        <title>Job URL</title>
-                                    </meta>
-                                </property>
-                            </properties>
-                        </type>
-                    </types>
-                </block>
-                <block name="contactPersons" default-type="contactPersonItem" minOccurs="0">
-                    <meta>
-                        <title lang="en">Contact person</title>
-                    </meta>
-                    <types>
-                        <type name="contactPersonItem">
-                            <meta>
-                                <title lang="en">Person</title>
-                            </meta>
-                            <properties>
-                                <property name="contactPersonItemImg" type="media_selection" maxOccurs="1">
-                                    <meta>
-                                        <title lang="en">Image</title>
-                                    </meta>
-                                    <params>
-                                        <param name="types" value="image"/>
-                                    </params>
-                                </property>
-                                <property name="contactPersonItemName" type="text_line" colspan="3">
-                                    <meta>
-                                        <title lang="en">Name</title>
-                                    </meta>
-                                </property>
-                                <property name="contactPersonItemJobTitle" type="text_line" colspan="3">
-                                    <meta>
-                                        <title lang="en">Job title</title>
-                                    </meta>
-                                </property>
-                                <property name="contactPersonItemPhone" type="text_line" colspan="3">
-                                    <meta>
-                                        <title lang="en">Phone</title>
-                                    </meta>
-                                </property>
-                                <property name="contactPersonItemXingUrl" type="url" colspan="6">
-                                    <meta>
-                                        <title>Xing URL</title>
-                                    </meta>
-                                </property>
-                                <property name="contactPersonItemLinkedinUrl" type="url" colspan="6">
-                                    <meta>
-                                        <title>Linkedin</title>
-                                    </meta>
-                                </property>
-                            </properties>
-                        </type>
-                    </types>
-                </block>
-            </properties>
-        </section>
-        <section name="price">
-            <meta>
-                <title lang="en">Price</title>
-            </meta>
+        <!-- CONTACT SECTION -->
+        <section name="contact">
+            <meta><title lang="en">Contact</title></meta>
             <properties>
-                <property name="priceHeadline" type="text_line">
-                    <meta>
-                        <title lang="en">Headline</title>
-                    </meta>
-                </property>
-                <property name="priceSubline" type="text_line">
-                    <meta>
-                        <title lang="en">Subline</title>
-                    </meta>
-                </property>
-                <property name="priceBodytext" type="text_area">
-                    <meta>
-                        <title lang="en">Bodytext</title>
-                    </meta>
-                </property>
-                <property name="priceGreenHeadline" type="text_line">
-                    <meta>
-                        <title>Grüne Headline</title>
-                    </meta>
-                </property>
-                <property name="priceGreenSubline" type="text_line">
-                    <meta>
-                        <title>Grüne Subline</title>
-                    </meta>
-                </property>
-                <block name="priceFeature" default-type="featureItem" minOccurs="0">
-                    <meta>
-                        <title lang="en">Feature</title>
-                    </meta>
-                    <types>
-                        <type name="featureItem">
-                            <meta>
-                                <title lang="en">Feature item</title>
-                            </meta>
-                            <properties>
-                                <property name="priceFeatureItem" type="text_line">
-                                    <meta>
-                                        <title lang="en">Item</title>
-                                    </meta>
-                                </property>
-                            </properties>
-                        </type>
-                    </types>
-                </block>
+                <property name="contactHeadline" type="text_line"><meta><title lang="en">Headline</title></meta></property>
+                <property name="contactBodytext" type="text_editor"><meta><title lang="en">Bodytext</title></meta></property>
             </properties>
         </section>
-        <section name="highlights">
+
+        <!-- PRICE SECTION -->
+        <section name="price">
+            <meta><title lang="en">Price</title></meta>
+            <properties>
+                <property name="priceHeadline" type="text_line"><meta><title lang="en">Headline</title></meta></property>
+                <property name="priceBodytext" type="text_area"><meta><title lang="en">Bodytext</title></meta></property>
+            </properties>
+        </section>
+
+        <!-- HIGHLIGHTS SECTION -->
+              <section name="highlights">
             <meta>
                 <title lang="en">Highlights</title>
             </meta>

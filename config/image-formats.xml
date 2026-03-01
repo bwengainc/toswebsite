@@ -30,7 +30,6 @@
         <scale x="153"/>
     </format>
 
-
     <format key="991x">
         <meta>
             <title lang="en">Header Image (Mobile) / Content Image (Mobile)</title>
@@ -48,8 +47,6 @@
 
         <scale x="1380"/>
     </format>
-
-
 
      <format key="400x">
         <meta>
@@ -69,13 +66,13 @@
         <scale x="600" y="400"/>
     </format>
 
-    <format key="400x400">
+    <format key="474x355">
         <meta>
-            <title lang="en">Teaser - Square</title>
-            <title lang="de">Teaser - Quadrat</title>
+            <title lang="en">Highlights - Square</title>
+            <title lang="de">Highlights  - Quadrat</title>
         </meta>
 
-        <scale x="400" y="400"/>
+        <scale x="474" y="355"/>
     </format>
 
     <format key="1920x800">
@@ -84,6 +81,24 @@
             <title lang="de">Sliderbild</title>
         </meta>
         <scale x="1920" y="800"/>
+    </format>
+
+  <format key="secretariat_360x400">
+        <meta>
+            <title lang="en">Secretariat Image</title>
+            <title lang="de">Secretariat Bild</title>
+        </meta>
+
+        <scale x="360" y="400"/>
+    </format>
+
+ <format key="364x400">
+        <meta>
+            <title lang="en">News Image</title>
+            <title lang="de">News Bild</title>
+        </meta>
+
+        <scale x="364" y="400"/>
     </format>
 
 

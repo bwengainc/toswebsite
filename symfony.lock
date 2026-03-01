@@ -209,6 +209,19 @@
     "sulu/automation-bundle": {
         "version": "2.1.4"
     },
+    "sulu/form-bundle": {
+        "version": "2.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "2.4",
+            "ref": "a0aabdf6ea613c7ecce4f195b233564102161feb"
+        },
+        "files": [
+            "config/packages/sulu_form.yaml",
+            "config/routes/sulu_form_admin.yaml"
+        ]
+    },
     "symfony-cmf/routing-bundle": {
         "version": "3.1.0"
     },

@@ -1,0 +1,60 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <!-- Top-level block -->
+    <block name="blocks" default-type="highlights">
+        <meta>
+            <title>Highlights Section</title>
+        </meta>
+
+        <types>
+            <type name="highlights">
+                <meta>
+                    <title>Highlights Group</title>
+                </meta>
+                <properties>
+                    <!-- Optional section title -->
+                    <property name="title" type="text_line">
+                        <meta><title lang="en">Section Title</title></meta>
+                    </property>
+
+                    <!-- Nested block for highlight items -->
+                    <block name="items" default-type="highlight" minOccurs="1" maxOccurs="4">
+                        <meta>
+                            <title>Highlight Items</title>
+                        </meta>
+                        <types>
+                            <type name="highlight">
+                                <meta>
+                                    <title>Highlight Item</title>
+                                </meta>
+                                <properties>
+                                    <property name="subtitle" type="text_line">
+                                        <meta><title lang="en">Subtitle</title></meta>
+                                    </property>
+                                    <property name="title" type="text_line">
+                                        <meta><title lang="en">Title</title></meta>
+                                    </property>
+                                    <property name="description" type="text_area">
+                                        <meta><title lang="en">Description</title></meta>
+                                    </property>
+                                    <property name="image" type="media_selection">
+                                        <meta><title lang="en">Image</title></meta>
+                                        <params>
+                                            <param name="max" value="1"/>
+                                            <param name="types" value="image"/>
+                                        </params>
+                                    </property>
+                                    <property name="link" type="url">
+                                        <meta><title lang="en">Link</title></meta>
+                                    </property>
+                                </properties>
+                            </type>
+                        </types>
+                    </block>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

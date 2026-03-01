@@ -1,0 +1,117 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+{# Page Title Section #}
+{% if content.header_image|default([])|length > 0 %}
+    {% set media = content.header_image[0] %}
+    {% set bgUrl = media.formats['600x400']|default(media.url) %}
+{% else %}
+    {% set bgUrl = 'assets/images/background/bg-9.jpg' %}
+{% endif %}
+
+<section class="page-title bg-image mt-0" style="background-image: url({{ bgUrl }});">
+    <div class="auto-container">
+        <div class="content-box">
+            <div class="content-wrapper">
+                <div class="title">
+                    <h1>{{ content.title|default('Contact Us') }}</h1>
+                </div>
+                <ul class="bread-crumb">
+                    <li><a href="{{ sulu_content_root_path() }}">Home</a></li>
+                    <li>{{ content.title|default('Get in touch') }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-form-section">
+    <div class="auto-container">
+        <div class="wrapper-box">
+            <div class="row">
+                {# Left column: Facts + Contact Info #}
+                <div class="col-lg-5">
+                    <div class="our-facts mt-4">
+                        {#% if content.facts is defined and content.facts is not empty %}
+                            {% for fact in content.facts %}
+                                <div class="column counter-column">
+                                    <div class="inner">
+                                        <div class="icon-outer">
+                                            <div class="icon"><span class="{{ fact.icon }}"></span></div>
+                                        </div>
+                                        <div class="count-outer count-box">
+                                            <span class="count-text" data-speed="3000" data-stop="{{ fact.count }}">0</span>
+                                        </div>
+                                        <div class="text">{{ fact.text|nl2br }}</div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %#}
+                
+                    {# Contact Info section placed here #}
+                    <section class="contact-info-section mt-4">
+                        {% set account = webspaceSettings.content.account.entity|default %}
+                        {% if account %}
+                            {% set address = account.accountAddresses[0].address %}
+                            <div class="contact-info-block">
+                                <ul class="contact-info">
+                                    <li>
+                                        <div class="icon"><i class="icon-placeholder"></i></div>
+                                        <div class="text">
+                                            {{ address.street }}, {{ address.zip ~ ' ' ~ address.city }}<br>
+                                            {{ country(address.countryCode) }}
+                                            {% if address.note is defined %}{{ address.note }}{% endif %}
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon"><i class="icon-phone"></i></div>
+                                        <div class="text">
+                                            <strong>Phone No.</strong>
+                                            <a href="tel:{{ account.mainPhone }}">{{ account.mainPhone }}</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon"><i class="icon-envelope"></i></div>
+                                        <div class="text">
+                                            <strong>Email</strong>
+                                            <a href="mailto:{{ account.mainEmail }}">{{ account.mainEmail }}</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        {% endif %}
+                    </section>
+                </div>
+                </div>
+
+                {# Right column: Contact Form #}
+                <div class="col-lg-7">
+                    <div class="contact-form-area">
+                        <div class="sec-title mb-30">
+                            <h2>Write to us <br><span style="font-size:28px;"> {{ account.name }}</span></h2>
+                        </div>
+                        
+                        <div class="contact-form">
+                            {% if content.form %}
+                                {% if app.request.get('send') != 'true' %}
+                                    {% form_theme content.form 'form/theme.html.twig' %}
+                                    {{ form(content.form) }}
+                                {% else %}
+                                    <div id="success">
+                                        <div role="alert" class="alert alert-success">
+                                            {{ view.form.entity.successText|raw }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -3051,6 +3051,7 @@ img {
     transition: .5s;
 }
 
+
 .project-block .inner-box:hover .content {
     opacity: 0;
     transform: scaleY(0);
@@ -3133,6 +3134,7 @@ img {
 
 .project-block .inner-box:hover .overlay {
     opacity: 1;
+    
 }
 
 .project-block .overlay .content-two {

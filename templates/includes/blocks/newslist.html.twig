@@ -19,9 +19,17 @@
                             <div class="news-block">
                                 <div class="inner-box">
                                     <div class="image">
-                                        {% if news.image %}
+                                        {#% if news.image %}
                                             {% set image = sulu_resolve_media(news.image.id, app.request.locale) %}
                                             <img src="{{ image.url }}" title="{{ news.title }}" alt="{{ news.title }}">
+                                        {% endif %#}
+                                        {% if news.image %} 
+                                        {% set image = sulu_resolve_media(news.image.id, app.request.locale) %} 
+                                        {% set source = image.formats['364x400'] 
+                                        is defined and image.formats['364x400'] is not empty
+                                         ? image.formats['364x400'] 
+                                        : image.url %} 
+                                        <img src="{{ source }}" title="{{ news.title }}" alt="{{ news.title }}"> 
                                         {% endif %}
                                         <div class="overlay">
                                             <div class="link-btn"><a href="{{ news.routePath }}"><i class="icon-arrow"></i></a></div>
@@ -51,8 +59,9 @@
             <div class="col-lg-3 col-md-12">
                 <div class="sidebar-announcements" style="background: #f7f7f7; padding: 20px; border-radius: 8px;">
                     <h3 style="margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px;">Announcements</h3>
-                    {% for news in content.newslist %}
-                        {% if news.type == 'announcement' %}
+                    {#% for news in content.newslist %#}
+                    {% for news in content.newslist|filter(n => n.type == 'announcement')|slice(0,4) %}
+                        {#% if news.type == 'announcement' %#}
                             <div class="featured-imagebox style2" style="margin-bottom: 20px;">
                                 <div class="featured-content">
                                     <div class="post-meta" style="font-size: 12px; color: #777;">
@@ -64,7 +73,7 @@
                                     <p style="font-size: 14px;">{{ news.subtitle }}</p>
                                 </div>
                             </div>
-                        {% endif %}
+                        {#% endif %#}
                     {% endfor %}
 
                     <div class="text-center" style="margin-top: 20px;">

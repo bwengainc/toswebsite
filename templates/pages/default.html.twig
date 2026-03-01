@@ -1,7 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>{{ content.title }}</h1>
 
-    {{ content.article|raw }}
+{# Page Title Section #}
+{% if content.header_image|default([])|length > 0 %}
+    {% set media = content.header_image[0] %}
+    {% set bgUrl = media.formats['600x400']|default(media.url) %}
+{% else %}
+    {% set bgUrl = 'assets/images/background/bg-9.jpg' %}
+{% endif %}
+
+<!--<section class="page-title bg-image mt-0" style="background-image: url({{ bgUrl }});">
+    <div class="auto-container">
+        <div class="content-box">
+            <div class="content-wrapper">
+                <div class="title">
+                    <h1>{{ content.title|default('Contact Us') }}</h1>
+                </div>
+                <ul class="bread-crumb">
+                    <li><a href="{{ sulu_content_root_path() }}">Home</a></li>
+                    <li>{{ content.title|default('Get in touch') }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>-->
+
+{#{ content.article|raw }#}
+{% for block in content.blocks %}
+
+    {% include "includes/blocks/" ~ block.type ~ ".html.twig" with {content: block}%}
+
+    {% endfor %}
+
 {% endblock %}
