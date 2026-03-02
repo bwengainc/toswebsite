@@ -2,22 +2,61 @@
     <header class="main-header header-style-two">
     
         <!-- Header Top two -->
-        <div class="header-top-two">
-            <div class="auto-container">
-                <div class="inner-container">
-                    <div class="left-column">
-                   
-                        
-                    <div class="text" style="color:#fff;"><i class="icon-news"></i><span style="background:#d3d807;"><a href="#">18 - 19 JUNE</a></span> 7th All Eye Health Workers and Partners Congress in Tanzania</div>  
+     
+   <div class="header-top-two">
+    <div class="auto-container">
+        <div class="inner-container">
+
+            {# Left column with all content centered #}
+            <div class="left-column text-center">
+                {% if content.bannerImage is defined and content.bannerImage|length > 0 %}
+                    {% set banner = content.bannerImage[0] %}
+                    {% set image = sulu_resolve_media(banner.id, app.request.locale) %}
+                    {% set source = image.formats['1200x400'] is defined and image.formats['1200x400'] is not empty
+                        ? image.formats['1200x400']
+                        : image.url %}
+                    <div class="banner mb-3">
+                        <img src="{{ source }}" alt="{{ banner.title|default('Conference Banner') }}">
                     </div>
-                    <div class="right-column">
-                          {% include '_locale_switcher.html.twig' %} 
-                        <!--<div class="link-btn"><a href="#" class="theme-btn btn-style-one"><span>suggestions / complaints</span></a></div>-->
-                        <div class="link-btn"><a href="#" class="theme-btn btn-style-one"><span>Membership</span></a></div>
-                    </div>
-                </div>
+                {% endif %}
+
+                <div class="text">
+                    {% if content.icon %}
+                        <i class="{{ content.icon }}"></i>
+                    {% endif %}
+                    {% if content.dateText %}
+                        <span style="background:#d3d807; font-size:36px; font-weight:bold;">
+                            {% if content.dateLink %}
+                                <a href="{{ content.dateLink }}">{{ content.dateText }}</a>
+                            {% else %}
+                                {{ content.dateText }}
+                            {% endif %}
+                        </span>
+                    {% endif %}
+                    {% if content.headline %}
+                        {{ content.headline }}
+                    {% endif %}
+                </div>  
             </div>
+
+            {# Right column stays normal #}
+            <div class="right-column">
+                {% include '_locale_switcher.html.twig' %}
+                {% if content.ctaButtonLink %}
+                    <div class="link-btn">
+                        <a href="{{ content.ctaButtonLink }}" class="theme-btn btn-style-one">
+                            <span>{{ content.ctaButtonLabel|default('Action') }}</span>
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+
         </div>
+    </div>
+</div>
+
+
+
 
         <!-- Header Upper -->
         <div class="header-upper">

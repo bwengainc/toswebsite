@@ -65,8 +65,8 @@
 
 
 .header-top-two {
-    background-color:#3F4B8A !important;
-    color:#ffffff !important;
+    background-color:#ffffff !important;
+    color:#1d823a !important;
 }
 
 
@@ -493,3 +493,24 @@ blockquote .quote {
  {
     color: #fff !important;
  }
+
+
+
+ .bootstrap-select .dropdown-menu li.active a span.text {
+    color: #21130d !important;
+}
+
+.bootstrap-select .dropdown-toggle .filter-option:after {
+    color: #21130d !important;
+}
+
+
+.header-top-two .language button.btn.dropdown-toggle {
+    color: #21130d !important;
+}
+
+.header-top-two .language .btn-light:not(:disabled):not(.disabled).active, 
+.header-top-two .language .btn-light:not(:disabled):not(.disabled):active, 
+.header-top-two .language .show>.btn-light.dropdown-toggle {
+    color: #21130d !important;
+}
