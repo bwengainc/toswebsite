@@ -326,18 +326,20 @@
 
 		    // Banner Slider
 			var bannerSlider = new Swiper('.banner-slider', {
-				preloadImages: false,
+				preloadImages: true,
                 loop: true,
                 grabCursor: true,
                 centeredSlides: false,
                 resistance: true,
                 resistanceRatio: 0.6,
-                speed: 1400,
+                speed: 1200,
                 spaceBetween: 0,
-                parallax: false,
-                effect: "slide",
+                parallax: true,
+                //effect: "slide",
+				effect: "fade", // use fade instead of slide 
+				fadeEffect: { crossFade: true }, 
 				autoplay: {
-				    delay: 4000,
+				    delay: 5000,
                     disableOnInteraction: false
 				},
 				pagination: {

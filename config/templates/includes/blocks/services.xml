@@ -1,0 +1,67 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="services">
+        <meta>
+            <title>Service Area Block</title>
+        </meta>
+        <types>
+            <type name="services">
+                <meta>
+                    <title>Service Area</title>
+                </meta>
+                <properties>
+                    <!-- Subtitle -->
+                    <property name="subtitle" type="text_line">
+                        <meta>
+                            <title>Subtitle</title>
+                        </meta>
+                    </property>
+
+                    <!-- Main Title -->
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title>Main Title</title>
+                        </meta>
+                    </property>
+
+                    <!-- Nested Service Items -->
+                    <block name="items" default-type="item" minOccurs="1">
+                        <meta>
+                            <title>Services</title>
+                        </meta>
+                        <types>
+                            <type name="item">
+                                <meta>
+                                    <title>Service Item</title>
+                                </meta>
+                                <properties>
+                                    <property name="icon" type="text_line">
+                                        <meta>
+                                            <title>Icon Class</title>
+                                        </meta>
+                                    </property>
+                                    <property name="title" type="text_line">
+                                        <meta>
+                                            <title>Service Title</title>
+                                        </meta>
+                                    </property>
+                                    <property name="description" type="text_area">
+                                        <meta>
+                                            <title>Description</title>
+                                        </meta>
+                                    </property>
+                                    <property name="link" type="resource_locator">
+                                        <meta>
+                                            <title>Link</title>
+                                        </meta>
+                                    </property>
+                                </properties>
+                            </type>
+                        </types>
+                    </block>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

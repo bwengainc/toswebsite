@@ -1,0 +1,43 @@
+{# includes/blocks/services.html.twig #}
+<section class="services-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            {% if content.subtitle is defined and content.subtitle is not empty %}
+                <div class="sub-title">{{  content.subtitle }}</div>
+            {% endif %}
+             {% if content.title is defined and content.title is not empty %}
+                <h2>{{ content.title }}</h2>
+            {% endif %}
+        </div>
+
+        <div class="row">
+            {% if content.items is defined and content.items is not empty %}
+                {% for item in content.items %}
+                    <div class="col-lg-4 col-md-6 service-block">
+                        <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                            {% if item.icon is defined and item.icon is not empty %}
+                                <div class="icon"><i class="{{ item.icon }}"></i></div>
+                            {% endif %}
+
+                            <div class="content">
+                                {% if item.title is defined and item.title is not empty %}
+                                    <h4>{{ item.title|raw }}</h4>
+                                {% endif %}
+                                {% if item.description is defined and item.description is not empty %}
+                                    <div class="text">{{ item.description|raw }}</div>
+                                {% endif %}
+                                {% if item.link is defined and item.link is not empty %}
+                                    <div class="link-btn">
+                                        <a href="{{ item.link }}">
+                                            <i class="icon-arrow"></i><span>READ MORE</span>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
