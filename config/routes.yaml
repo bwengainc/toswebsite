@@ -27,3 +27,7 @@ controllers:
 #
 #logout:
 #    path: /logout
+
+app_recent_news:
+    path: /recent-news
+    controller: App\Controller\NewsController::recent

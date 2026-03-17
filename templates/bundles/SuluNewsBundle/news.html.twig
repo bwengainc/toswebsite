@@ -1,0 +1,108 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+<section class="page-title style-two mt-0" style="background-image: url({{ asset('http://tos.local/uploads/media/1920x800/06/36-WhatsApp%20Image%202026-03-14%20at%2019.49.57.png?v=1-0') }});">
+    <div class="auto-container">
+        <div class="content-box">
+            <div class="content-wrapper">
+                <div class="title">
+                    <h1>{{ news.title }}</h1>
+                    <ul class="post-meta">
+                        {% if news.showAuthor %}
+                            {% set contact = sulu_resolve_contact(news.author) %}
+                            <li><i class="far fa-user"></i>{{ contact.fullName }}</li>
+                        {% endif %}
+                        {% if news.showDate %}
+                            <li><i class="far fa-calendar"></i>
+                                {{ news.publishedAt|format_datetime('long', 'none', locale=app.request.locale) }}
+                            </li>
+                        {% endif %}
+                        {% if news.comments is defined %}
+                            <li><i class="far fa-comments"></i>{{ news.comments|length }} {% trans %}Comments{% endtrans %}</li>
+                        {% endif %}
+                        
+                    </ul>
+                </div>
+                <ul class="bread-crumb">
+                    <li><a href="/">{% trans %}Home{% endtrans %}</a></li>
+                    <li>{% trans %}Our Blog{% endtrans %}</li>
+                    <li>{% trans %}Post Details{% endtrans %}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sidebar Page Container -->
+<section class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="blog-single-post">
+                    <div class="top-content">
+                    <div class="title">
+                    <h1>{{ news.title }}</h1>
+                    
+    <ul class="post-meta" style="list-style:none; padding:0; margin:0; display:flex; gap:15px;">
+    {% if news.showAuthor %}
+        {% set contact = sulu_resolve_contact(news.author) %}
+        <li><i class="far fa-user"></i> {{ "by"|trans }} {{ contact.fullName }}</li>
+    {% endif %}
+
+    <li><i class="far fa-calendar"></i> 
+        {{ news.created|format_datetime('full', 'none', locale=app.request.locale) }}
+    </li>
+</ul>
+                </div>
+                       
+
+                        {% if news.subtitle %}
+                            <h4>{{ news.subtitle }}</h4>
+                        {% endif %}
+                        </p>
+                        
+                        <div class="text mt-5">
+                            {{ news.text|raw }}
+                        </div>
+
+
+                            {% if news.image %} 
+    {% set image = sulu_resolve_media(news.image.id, app.request.locale) %} 
+    {% set source = image.formats['700x'] 
+        is defined and image.formats['700x'] is not empty
+        ? image.formats['700x'] 
+        : image.url %} 
+        <div class="image mb-5 mt-5">
+        <img src="{{ source }}" title="{{ news.title }}" alt="{{ news.title }}" style="width:700px; object-fit:cover; display:inline-block;"> 
+        </div>
+{% endif %}
+
+
+
+                    </div>
+
+                    {% if news.footer %}
+                        <div class="post-footer mt-4">
+                            {{ news.footer|raw }}
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <aside class="sidebar blog-sidebar sidebar-style-two">
+                {# BADALA YA INCLUDE, TUMIA HII: #}
+            {{ render(controller('App\\Controller\\NewsController::recent', { 
+                'excludeId': news.id 
+            })) }}
+            
+
+                    </div>
+                </aside>
+            </div>
+        </div>  
+
+    </div>
+</section>
+{% endblock %}

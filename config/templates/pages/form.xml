@@ -50,6 +50,38 @@
             </properties>
         </section>
 
+                <!-- FIXED TOP-HEADER SECTION -->
+        <section name="top-header">
+            <meta>
+                <title lang="en">Top Header</title>
+                <title lang="de">Kopfbereich</title>
+            </meta>
+
+            <properties>
+                <property name="bannerImage" type="media_selection" minOccurs="0" maxOccurs="1">
+                    <meta><title>Conference Banner Image</title></meta>
+                </property>
+                <property name="icon" type="text_line">
+                    <meta><title>Icon Class</title></meta>
+                </property>
+                <property name="dateText" type="text_line">
+                    <meta><title>Date / News Date</title></meta>
+                </property>
+                <property name="dateLink" type="resource_locator">
+                    <meta><title>Date / News Link</title></meta>
+                </property>
+                <property name="headline" type="text_line">
+                    <meta><title>Headline / News Title</title></meta>
+                </property>
+                <property name="ctaButtonLabel" type="text_line">
+                    <meta><title>CTA Button Label</title></meta>
+                </property>
+                <property name="ctaButtonLink" type="resource_locator">
+                    <meta><title>CTA Button Link</title></meta>
+                </property>
+            </properties>
+        </section>
+
         <property name="form" type="single_form_selection">
             <meta>
                 <title lang="de">Formular</title>

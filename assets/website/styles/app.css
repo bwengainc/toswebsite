@@ -471,7 +471,7 @@ blockquote .quote {
     background: linear-gradient(
         to top,
         rgba(10, 40, 70, 0.88) 0%,
-        rgba(0, 0, 0, 0.15) 55%,
+        rgba(0, 0, 0, 0.55) 55%,
         transparent 100%
     );
 }
@@ -513,4 +513,46 @@ blockquote .quote {
 .header-top-two .language .btn-light:not(:disabled):not(.disabled):active, 
 .header-top-two .language .show>.btn-light.dropdown-toggle {
     color: #21130d !important;
+}
+
+
+
+.small, small {
+    font-size: 100% !important;
+    font-weight: 600 !important;
+    color: #f8d50b !important;
+}
+
+
+.main-footer {
+    background-color: rgb(0, 0, 0) !important;
+}
+
+.main-footer .widget .widget-title {
+  color: #f8d50b !important;
+}
+
+.main-footer .widget .widget-title:before {
+    background-image: none !important;
+}
+
+.contact-widget .contact-info li .icon {
+  color: #f8d50b !important;
+  font-size: 20px !important;
+}
+
+
+.scroll-to-top {
+  background: #1474e0 !important;
+  color:#fff !important;
+  border:none !important;
+}
+
+.scroll-to-top:hover{
+  background: #f8d50b !important;
+}
+
+.blog-single-post{
+border: 1px solid #d9d9d9;
+padding:15px;
 }

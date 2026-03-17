@@ -12,8 +12,8 @@
                 {% if content.bannerImage is defined and content.bannerImage|length > 0 %}
                     {% set banner = content.bannerImage[0] %}
                     {% set image = sulu_resolve_media(banner.id, app.request.locale) %}
-                    {% set source = image.formats['1200x400'] is defined and image.formats['1200x400'] is not empty
-                        ? image.formats['1200x400']
+                    {% set source = image.formats['sulu-100x100'] is defined and image.formats['sulu-100x100'] is not empty
+                        ? image.formats['sulu-100x100']
                         : image.url %}
                     <div class="banner mb-3">
                         <img src="{{ source }}" alt="{{ banner.title|default('Conference Banner') }}">
@@ -21,7 +21,7 @@
                 {% endif %}
 
                 <div class="text">
-                    {% if content.icon %}
+                    {#% if content.icon %}
                         <i class="{{ content.icon }}"></i>
                     {% endif %}
                     {% if content.dateText %}
@@ -35,28 +35,25 @@
                     {% endif %}
                     {% if content.headline %}
                         {{ content.headline }}
-                    {% endif %}
+                    {% endif %#}
                 </div>  
             </div>
 
             {# Right column stays normal #}
             <div class="right-column">
                 {% include '_locale_switcher.html.twig' %}
-                {% if content.ctaButtonLink %}
+                {#% if content.ctaButtonLink %}
                     <div class="link-btn">
                         <a href="{{ content.ctaButtonLink }}" class="theme-btn btn-style-one">
                             <span>{{ content.ctaButtonLabel|default('Action') }}</span>
                         </a>
                     </div>
-                {% endif %}
+                {% endif %#}
             </div>
 
         </div>
     </div>
 </div>
-
-
-
 
         <!-- Header Upper -->
         <div class="header-upper">

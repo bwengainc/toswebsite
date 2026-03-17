@@ -102,7 +102,14 @@
     </format>
 
 
+ <format key="700x">
+        <meta>
+            <title lang="en">Newsdetail Image</title>
+            <title lang="de">Newsdetail Bild</title>
+        </meta>
 
+        <scale x="700"/>
+    </format>
 
 
 
